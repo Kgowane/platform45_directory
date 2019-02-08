@@ -1,0 +1,28 @@
+= form_with(model: [@user, @address], local: true) do |f|
+  - if @address.errors.any?
+    div id="error_explanation"
+      h2 = "#{@address.errors.count} #{'error'.pluralize(@address.errors.count)} prohibited the address from being added"
+      ul
+       - @address.errors.full_messages.each do |m|
+        li = m
+  = f.label(:'street number', "Street Number")
+  br
+  = f.text_field :number
+  br
+  = f.label(:'street name', "Street Name")
+  br
+  = f.text_field :street
+  br
+  = f.label :suburb
+  br
+  = f.text_field :suburb
+  br
+  = f.label :city
+  br
+  = f.text_field :city
+  br
+  br
+
+  = f.submit
+br
+= link_to 'Cancel', users_path

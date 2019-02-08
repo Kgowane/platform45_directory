@@ -1,0 +1,8 @@
+h1  Address for user #{@user.first_name} #{@user.last_name}
+
+p Street Number: #{@user.address.number}
+p Street Name: #{@user.address.street}
+p Suburb: #{@user.address.suburb}
+p City: #{@user.address.city}
+
+= link_to 'View Users', users_path

@@ -1,0 +1,13 @@
+h1 USER DETAILS
+
+p = "Id: #{@user.id}"
+p = "Firstname: #{@user.first_name}"
+p = "Lastname: #{@user.last_name}"
+p = "Age: #{@user.age}"
+
+h2  User Address
+p = "Street Number: #{@user.address.number}"
+p = "Street Name: #{@user.address.street}"
+p = "Suburb: #{@user.address.suburb}"
+p = "City: #{@user.address.city}"
+= link_to 'Return to list of all users', users_path

@@ -1,0 +1,22 @@
+= form_with(model: user, local: true) do |f|
+  - if @user.errors.any?
+    div id="error_explanation"
+      h2 = "#{@user.errors.count} #{'error'.pluralize(@user.errors.count)} prohibited the user from being added"
+      ul
+       - @user.errors.full_messages.each do |m|
+        li = m
+  = f.label(:'firstname', "Firstname")
+  br
+  = f.text_field :first_name
+  br
+  = f.label(:'lastname', "Lastname")
+  br
+  = f.text_field :last_name
+  br
+  = f.label :age
+  br
+  = f.text_field :age
+  br
+  br
+
+  = f.submit

@@ -1,0 +1,32 @@
+h1  LIST OF ALL USERS
+
+p = link_to 'Add new user', new_user_path
+- if @users.present?
+  table
+    tr
+      th ID
+      th FIRSTNAME
+      th LASTNAME
+      th AGE
+      th SHOW USER
+      th EDIT
+      th DELETE
+      th ADD USER ADDRESS
+      th SHOW ADDRESS
+    - @users.each do |user|
+        tr
+          td =user.id
+          td =user.first_name
+          td =user.last_name
+          td =user.age
+          td = link_to 'show user', user_path(user)
+          td = link_to 'edit', edit_user_path(user)
+          td = link_to 'delete', user_path(user),
+              method: :delete,
+              data: { confirm: 'Are you sure you want to remove the user' }
+          - unless user.address.present?
+              td = link_to 'add', new_user_address_path(user)
+          - if user.address.present?
+              td User Address Exists
+          - if user.address.present?
+              td =link_to "#{user.address.city}", user_address_path(user, user.address)
